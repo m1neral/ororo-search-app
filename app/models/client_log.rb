@@ -1,0 +1,2 @@
+class ClientLog < ApplicationRecord
+end
