@@ -1,24 +1,21 @@
-# README
+## Installation
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Clone this repository:
 
-Things you may want to cover:
+    ```
+    git clone https://github.com/m1neral/ororo-search-app.git
+    ```
+- Install gems:
 
-* Ruby version
+    ```
+    bundle
+    ```
+- Setup database:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    ```
+    rails db:create db:migrate db:setup
+    ```
+- Start the server:
+    ```
+    rails s
+    ```
