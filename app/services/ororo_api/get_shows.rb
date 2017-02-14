@@ -7,10 +7,7 @@ module OroroApi
     }
 
     def initialize(params)
-      @params = {
-        genres: params['genres'] || nil,
-        order: params['order'] || nil
-      }
+      @params = params
     end
 
     def perform
