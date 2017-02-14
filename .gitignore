@@ -17,3 +17,5 @@
 .byebug_history
 
 .idea/*
+frontend/node_modules/*
+app/assets/javascripts/webpack-bundle.js
