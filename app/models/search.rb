@@ -4,6 +4,7 @@ class Search < ApplicationRecord
   belongs_to :server_log, optional: true
 
   validates :results_count, presence: true
+  validates_numericality_of :results_count, only_integer: true
   validate :client_log_or_server_log
 
   private

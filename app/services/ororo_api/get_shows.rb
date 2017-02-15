@@ -14,7 +14,7 @@ module OroroApi
       uri = URI(SHOWS_API[:GET_SHOWS])
       uri.query = params.to_query
 
-      Net::HTTP.get(uri)
+      JSON.parse(Net::HTTP.get(uri))
     end
   end
 end

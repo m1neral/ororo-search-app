@@ -18,7 +18,7 @@ module Logging
       end
       search = Search.new(results_count: results_count, **log)
 
-      search.save
+      search.save!
     end
   end
 end

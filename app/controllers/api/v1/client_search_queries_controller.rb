@@ -6,6 +6,8 @@ class Api::V1::ClientSearchQueriesController < ApplicationController
     results_count = client_search_query_params[:results_count]
 
     Logging::AddLog.new(filtered_params, results_count, is_client_log: true).perform
+
+    render json: Logging::GetInfo.do
   end
 
   private
