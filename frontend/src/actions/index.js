@@ -1,14 +1,20 @@
-import { * as api } from '../api';
+import * as api  from '../api';
 
-export const fetchShows = (params) => (dispatch, getState) {
+export const fetchShows = () => (dispatch, getState) => {
+    const { filters, order } = getState();
+
     dispatch({
         type: 'FETCH_SHOWS_REQUEST'
     });
 
-    return api.fetchShows(params).then(
+    return api.fetchShows({ filters, order }).then(
         response => {
             dispatch({
                 type: 'FETCH_SHOWS_SUCCESS',
+                response
+            });
+            dispatch({
+                type: 'SET_SEARCHES_INFO',
                 response
             });
         },

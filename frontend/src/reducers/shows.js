@@ -3,9 +3,7 @@ import { combineReducers } from 'redux';
 const fetchedShows = (state = [], action) => {
     switch (action.type) {
         case 'FETCH_SHOWS_SUCCESS':
-            return {
-                fetchedShows: action.response.shows
-            };
+            return action.response.data.shows;
         default:
             return state;
     }

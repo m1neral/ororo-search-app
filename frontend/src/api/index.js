@@ -12,4 +12,4 @@ const mapFiltersAndOrderToParams = (params) => {
                 + (order.length ? `order=${order}` : '');
 };
 
-export const fetchShows = (params) => axios.get(SHOWS_URL + '?' + mapFiltersAndOrderToParams(params);
+export const fetchShows = (params) => axios.get(SHOWS_URL + '?' + mapFiltersAndOrderToParams(params));

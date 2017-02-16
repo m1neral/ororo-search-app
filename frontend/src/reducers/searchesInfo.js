@@ -1,11 +1,13 @@
 const searchesInfo = (state = {}, action) => {
-    if (action.response) {
-        return {
-            searchesCount: action.response.searches_count,
-            averageResultsCount: action.response.average_results_count
-        }
+    switch (action.type) {
+        case 'SET_SEARCHES_INFO':
+            return {
+                searchesCount: action.response.data.searches_count,
+                averageResultsCount: action.response.data.average_results_count
+            };
+        default:
+            return state;
     }
-    return state;
 };
 
 export default searchesInfo;
