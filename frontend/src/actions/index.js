@@ -6,7 +6,7 @@ export const fetchShows = () => (dispatch, getState) => {
     dispatch({
         type: 'FETCH_SHOWS_REQUEST'
     });
-
+    // TODO: need debounce
     return api.fetchShows({ filters, order }).then(
         response => {
             dispatch({
@@ -23,3 +23,8 @@ export const fetchShows = () => (dispatch, getState) => {
         }
     );
 };
+
+export const setGenresFilterValue = (value) => ({
+    type: 'SET_GENRES_FILTER_VALUE',
+    value
+});
