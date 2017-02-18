@@ -1,10 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import Select from 'react-select';
-import { GENRES } from '../reducers/filters';
 import { setGenresFilterValue, fetchShows } from '../actions';
 
-const selectableGenres = GENRES.map(genre => ({ label: genre, value: genre }));
 const defaultValue = [];
 
 class GenresFilter extends Component {
@@ -12,6 +10,7 @@ class GenresFilter extends Component {
         super(props);
 
         const { genres, onGenresChange } = props;
+        const selectableGenres = genres.map(genre => ({ label: genre, value: genre }));
 
         this.onGenresChange = onGenresChange.bind(this);
         this.handleSelectChange = this.handleSelectChange.bind(this);
@@ -29,7 +28,7 @@ class GenresFilter extends Component {
     render() {
         return (
             <Select
-                name='form-field-name'
+                name='form-field-filter-genres'
                 placeholder='Select genre(s)'
                 options={this.state.options}
                 onChange={this.handleSelectChange}
@@ -44,10 +43,10 @@ class GenresFilter extends Component {
 GenresFilter.PropTypes = {
     genres: PropTypes.arrayOf(PropTypes.string).isRequired,
     onGenresChange: PropTypes.func.isRequired
-}
+};
 
-const mapStateToProps = (state) => ({
-    genres: state.filters.genres
+const mapStateToProps = (_, ownProps) => ({
+    genres: ownProps.genres
 });
 
 const mapDispatchToProps = (dispatch) => ({

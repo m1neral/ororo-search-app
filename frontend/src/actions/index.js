@@ -28,3 +28,8 @@ export const setGenresFilterValue = (value) => ({
     type: 'SET_GENRES_FILTER_VALUE',
     value
 });
+
+export const setOrderValue = (value) => ({
+    type: 'SET_ORDER_VALUE',
+    value
+});
