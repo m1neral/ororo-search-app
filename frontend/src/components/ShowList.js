@@ -12,10 +12,11 @@ class ShowList extends Component {
     }
 
     render() {
+        console.log('RENDER');
         const { showList } = this.props;
         const tableBody = showList.map(show => (
             <tr key={show.id}>
-                <th scope="row">{show.id}</th>
+                <th scope='row'>{show.id}</th>
                 <td>{show.name}</td>
                 <td>{show.array_genres.join(', ')}</td>
                 <td>{show.year}</td>
@@ -43,15 +44,11 @@ ShowList.propTypes = {
     showList: PropTypes.arrayOf(PropTypes.object)
 };
 
-const mapStateToProps = (state) => {
-    // If shows filtered by query (from client)
-    if (state.shows.queriedShowsIds.length) {
-        // TODO: refactoring: move logic to another module
-    } else {
-        return {
-            showList: state.shows.fetchedShows
-        };
-    }
-};
+const mapStateToProps = (state) => ({
+    showList: state.query.value.length
+        // If shows filtered by query (from client)
+        ? state.shows.queriedShows
+        : state.shows.fetchedShows
+});
 
 export default connect(mapStateToProps, actions)(ShowList);

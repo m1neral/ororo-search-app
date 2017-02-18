@@ -10,10 +10,13 @@ const fetchedShows = (state = [], action) => {
 
 };
 
-const queriedShowsIds = (state = [], action) => {
+const queriedShows = (state = [], action) => {
     switch (action.type) {
         case 'FILTER_SHOWS_BY_QUERY':
-            return action.ids.slice();
+            return action.query
+                ? action.fetchedShows.filter(show =>
+                    show.name.toLowerCase().indexOf(action.query.toLowerCase()) !== -1)
+                : [];
         default:
             return state;
     }
@@ -34,7 +37,7 @@ const isFetching = (state = false, action) => {
 
 const shows = combineReducers({
     fetchedShows,
-    queriedShowsIds,
+    queriedShows,
     isFetching
 });
 
