@@ -8,7 +8,7 @@ class Search < ApplicationRecord
   validate :client_log_or_server_log
 
   private
-
+  # move to service
   def client_log_or_server_log
     unless (client_log && client_log.valid?) || (server_log && server_log.valid?)
       errors.add(:base, 'One of the logs must exist and valid')

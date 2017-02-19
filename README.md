@@ -13,7 +13,13 @@
 - Setup database:
 
     ```
-    rails db:create db:migrate db:setup
+    rails db:setup
+    ```
+- Install frontend environment:
+    ```
+    cd frontend
+    npm i
+    npm run dev
     ```
 - Start the server:
     ```

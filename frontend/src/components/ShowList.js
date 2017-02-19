@@ -12,7 +12,6 @@ class ShowList extends Component {
     }
 
     render() {
-        console.log('RENDER');
         const { showList } = this.props;
         const tableBody = showList.map(show => (
             <tr key={show.id}>

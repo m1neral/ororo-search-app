@@ -9,15 +9,14 @@ module Logging
     end
 
     def perform
-      log = {}.tap do |log|
-        if is_client_log
-          log[:client_log] = ClientLog.new(params)
-        else
-          log[:server_log] = ServerLog.new(params)
-        end
+      log = {}
+      if is_client_log
+        log[:client_log] = ClientLog.new(params)
+      else
+        log[:server_log] = ServerLog.new(params)
       end
-      search = Search.new(results_count: results_count, **log)
 
+      search = Search.new(results_count: results_count, **log)
       search.save!
     end
   end
