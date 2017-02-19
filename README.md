@@ -18,8 +18,12 @@
 - Install frontend environment:
     ```
     cd frontend
+    ```
+    ```
     npm i
-    npm run dev
+    ```
+    ```
+    npm run dev (ctrl+c to stop watcher)
     ```
 - Start the server:
     ```
